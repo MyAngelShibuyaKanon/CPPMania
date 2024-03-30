@@ -42,8 +42,8 @@ int lane3PosX = (screenWidth / 2);
 int lane4PosX = (screenWidth / 2) + (1 * columnWidth);
 
 void start_music(musicHandler &master){
-    //master.loadMusic("audio.ogg");
-    //master.playMusic();
+    master.loadMusic("audio.ogg");
+    master.playMusic();
     master.loadManiaSfx();
     master.playManiaSfx(0);
 }
