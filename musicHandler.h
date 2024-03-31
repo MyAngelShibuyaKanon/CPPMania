@@ -15,11 +15,14 @@ class musicHandler{
         std::vector<sfxNode> soundEffects;
 
     public:
+
+        int handlerToMusic;
         void loadManiaSfx();
         void playManiaSfx(int posInVector);
         void playMusic();
         void loadMusic(std::string pathToFile);
         void purge();
+        double getMusicPlayTime(SoLoud::handle handler);
 
     musicHandler(){
         gSoLoud.init();

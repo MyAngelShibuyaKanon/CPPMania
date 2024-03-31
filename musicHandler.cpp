@@ -7,7 +7,7 @@ void musicHandler::playManiaSfx(int posInVector){
     std::cout << this -> soundEffects[posInVector].sound.getLength() << std::endl;
 }
 void musicHandler::playMusic(){
-    this -> gSoLoud.play(mainMusic);
+    this -> handlerToMusic = this -> gSoLoud.play(mainMusic);
     
 }   
 
@@ -25,4 +25,14 @@ void musicHandler::loadManiaSfx(){
     this -> soundEffects.push_back(sfx);
     this -> soundEffects[0].sound.load("Skins/- mayu (orbs)/soft-hitnormal.ogg");
     this -> soundEffects[1].sound.load("Skins/- mayu (orbs)/soft-hitclap.ogg");
+}
+
+double musicHandler::getMusicPlayTime(SoLoud::handle handler){
+    double musicPlayPosition = this->gSoLoud.getStreamPosition(handler);
+    double musicPlayTime = this->gSoLoud.getStreamTime(handler);
+
+    std::cout << "Stream Position: " << musicPlayPosition << std::endl;
+    std::cout << "Stream Time: " << musicPlayTime << std::endl;
+
+    return musicPlayTime;
 }

@@ -21,7 +21,9 @@
                 "-l",
                 "sfml-system",
                 "-l",
-                "sfml-audio"
+                "sfml-audio",
+                "l",
+                "note"
             ],
             "options": {
                 "cwd": "${fileDirname}"
