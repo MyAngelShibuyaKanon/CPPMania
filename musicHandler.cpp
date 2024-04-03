@@ -31,8 +31,8 @@ double musicHandler::getMusicPlayTime(SoLoud::handle handler){
     double musicPlayPosition = this->gSoLoud.getStreamPosition(handler);
     double musicPlayTime = this->gSoLoud.getStreamTime(handler);
 
-    std::cout << "Stream Position: " << musicPlayPosition << std::endl;
-    std::cout << "Stream Time: " << musicPlayTime << std::endl;
+    //std::cout << "Stream Position: " << musicPlayPosition << std::endl;
+    //std::cout << "Stream Time: " << musicPlayTime << std::endl;
 
     return musicPlayTime;
 }

@@ -1,9 +1,10 @@
 #include <SFML/Graphics.hpp>
+#pragma once
 
-
-void note::initNote(sf::Texture& noteTexture, int noteTime, int noteLane){
+void note::initNote(sf::Texture noteTexture, int noteTime, int noteLane){
     this -> sprite.setTexture(noteTexture);
     this -> sprite.setPosition(0, 0);
+    this -> timeToHit = noteTime;
     switch (noteLane){
         case 1:
             this -> sprite.setPosition(((720 / 2)) - (2 * 132), 0);
@@ -20,8 +21,8 @@ void note::initNote(sf::Texture& noteTexture, int noteTime, int noteLane){
     }
 } 
 
-void note::render(sf::RenderTarget& target){
-    target.draw(this -> sprite);
+void note::render(sf::RenderTarget& window, note& curNote){
+    window.draw(curNote.sprite);
 }
 
 void note::move(int OffsetPosX, int OffsetPosY){

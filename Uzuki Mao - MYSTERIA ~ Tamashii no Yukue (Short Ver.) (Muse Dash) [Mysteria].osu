@@ -1,7 +1,14 @@
-448,192,113807,1,0,0:0:0:0:
-:0:0:0:
- project lights Best Collection Vol.04 U-Secret Studio SakuraGame rpg jrpg arpg video game theme song ed ending Japanese folk PLCC-1023
-0
+osu file format v14
+
+[General]
+AudioFilename: audio.ogg
+AudioLeadIn: 0
+PreviewTime: 59558
+Countdown: 0
+SampleSet: Drum
+StackLeniency: 0.7
+Mode: 3
+LetterboxInBreaks: 0
 SpecialStyle: 0
 WidescreenStoryboard: 1
 
