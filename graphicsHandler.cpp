@@ -3,15 +3,16 @@
 #pragma once
 
 
- sf::Texture graphicsHandler::getTexture(int id){
+sf::Texture graphicsHandler::getTexture(int id){
+   sf::Texture tempTexture;
     switch (id){
         case 0:
-            sf::Texture tempTexture;
-            tempTexture.loadFromFile("/home/quertzy/Documents/Programming-stuff/c++/SFML/CppMania/Skins/- mayu (orbs)/Orbs/note8.png");
+            tempTexture.loadFromFile("note8.png");
             return tempTexture;
     }
+
+   tempTexture.loadFromFile("blank.png");
+   return tempTexture;
  }
 
- void graphicsHandler::renderNote(sf::RenderTarget& window, note& currentNote){
-    currentNote.render(window, currentNote);
- }
+ 

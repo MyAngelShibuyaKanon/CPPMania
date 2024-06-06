@@ -1,31 +1,34 @@
 #include <SFML/Graphics.hpp>
+#include "objectManager.h"
+#include "objectManager.cpp"
 #pragma once
 
-void note::initNote(sf::Texture noteTexture, int noteTime, int noteLane){
+void note::initNote(sf::Texture& noteTexture, int noteTime, int noteLane, int index){
     this -> sprite.setTexture(noteTexture);
     this -> sprite.setPosition(0, 0);
     this -> timeToHit = noteTime;
     switch (noteLane){
-        case 1:
+        case 0:
             this -> sprite.setPosition(((720 / 2)) - (2 * 132), 0);
             break;
-        case 2:
+        case 1:
             this -> sprite.setPosition(((720 / 2)) - (1 * 132), 0);
             break;
-        case 3:
+        case 2:
             this -> sprite.setPosition(((720 / 2)), 0);
             break;
-        case 4:
+        case 3:
             this -> sprite.setPosition(((720 / 2)) + (1 * 132), 0);
             break;
     }
+    this -> index = index;
 } 
 
-void note::render(sf::RenderTarget& window, note& curNote){
-    window.draw(curNote.sprite);
+void note::render(sf::RenderTarget& window){
+    window.draw(this->sprite);
 }
 
-void note::move(int OffsetPosX, int OffsetPosY){
+void note::move(double OffsetPosX, double OffsetPosY){
     this -> sprite.move(OffsetPosX, OffsetPosY);
 }
 
@@ -36,4 +39,10 @@ float note::getPosY(){
 
 void note::resetY(){//for tests
     this -> sprite.setPosition(this -> sprite.getPosition().x, 0);
+}
+
+void note::update(sf::RenderTarget& window, double velocity){
+    this->move(0, velocity);
+    this->render(window);
+
 }

@@ -1,6 +1,5 @@
 #include <vector>
 #include <SFML/Graphics.hpp>
-#include "note.h"
 #pragma once
 
 class graphicsHandler{

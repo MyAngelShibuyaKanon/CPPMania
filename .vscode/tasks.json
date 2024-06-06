@@ -10,8 +10,8 @@
                 "${file}",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}",
-                "-I/home/quertzy/Documents/Programming-stuff/c++/SFML/CppMania/SoLoud/include/",
-                "-L/home/quertzy/Documents/Programming-stuff/c++/SFML/CppMania/",
+                "-I/home/quertzy/Documents/GitHub/CppMania/SoLoud/include/",
+                "-L/home/quertzy/Documents/GitHub/CppMania/",
                 "-l",
                 "soloud_static",
                 "-l",
@@ -21,9 +21,7 @@
                 "-l",
                 "sfml-system",
                 "-l",
-                "sfml-audio",
-                "l",
-                "note"
+                "sfml-audio"
             ],
             "options": {
                 "cwd": "${fileDirname}"

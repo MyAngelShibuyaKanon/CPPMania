@@ -26,7 +26,7 @@ void parseMap(objectManager& obj){
 
 
 void parseHitNoteLine(std::string textLine, objectManager& obj){
-    int x = std::stoi(textLine.substr(0, textLine.find(",")));
+    double x = std::stoi(textLine.substr(0, textLine.find(",")));
     textLine.erase(0, textLine.find(",") + 1);
     int y = std::stoi(textLine.substr(0, textLine.find(",")));
     textLine.erase(0, textLine.find(",") + 1);
@@ -60,7 +60,8 @@ void parseHitNoteLine(std::string textLine, objectManager& obj){
     }
 
     note.toBeHit = timeToHit;
-    std::cout << x << " " << y << " " << timeToHit << " " << type << " " << hitsound << " " << endTime << " " << hitSample << std::endl;
+    note.lane = floor(x * 4 / 512);
+    //std::cout << x << " " << y << " " << timeToHit << " " << type << " " << hitsound << " " << endTime << " " << hitSample << std::endl;
     obj.addNote(note);
 
 }
