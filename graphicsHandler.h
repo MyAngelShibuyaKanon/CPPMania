@@ -11,8 +11,21 @@ class graphicsHandler{
         
 
     public:
+        sf::Texture judgementTextures[6];
+        sf::Sprite judgementSprite;
+        std::vector<sf::Sprite> judmentScores;
+        int timeSinceLastJudgement;
+        sf::Texture noteHitCircle;
+        std::vector<sf::Sprite> columnHitLine;
+        sf::Sprite hitCircle;
         sf::Texture getTexture(int id);
-        void renderNote(sf::RenderTarget& window, note& currentNote);
+        void genPlayfield(int colSize);
+        void renderPlayfield(sf::RenderTarget& window);
+        void renderNote(note& currentNote);
         void renderLongNote();
         int startThread(sf::RenderWindow* window);
+        void showJudgement(int judgementLevel);
+        void loadJudgements();
+        void updateJudgement(double playTime, std::vector<int>& judgementScores, sf::RenderWindow& window);
 };
+

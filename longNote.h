@@ -2,20 +2,23 @@
 #include <iostream>
 #pragma once
 
-class note {
+class longNote {
     private:
         
 
 
     public:
-        ~note(){
-            //std::cout << index << "\n";
+        ~longNote(){
+            std::cout << index << "\n";
         }
         int index;
         int timeToHit; 
+        int endTime;
         int noteLane;
-        sf::Sprite sprite;
-        void initNote(sf::Texture& noteTexture, int noteTime, int noteLane, int index);
+        sf::Sprite spriteHead;
+        sf::Sprite spriteTail;
+        sf::Sprite spriteBody;
+        void initNote(sf::Texture& noteHeadTexture,sf::Texture& noteTailTexture, sf::Texture& noteBodytexture, int noteTime, int endTime, int noteLane, int index, float velocity);
         void update(sf::RenderTarget& window, double velocity);
         void render(sf::RenderTarget& window);
         void move(double OffsetPosX, double OffsetPosY);

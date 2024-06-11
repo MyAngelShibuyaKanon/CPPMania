@@ -6,21 +6,26 @@
 void note::initNote(sf::Texture& noteTexture, int noteTime, int noteLane, int index){
     this -> sprite.setTexture(noteTexture);
     this -> sprite.setPosition(0, 0);
+    this -> sprite.setScale(1.7, 1.7);
     this -> timeToHit = noteTime;
+    this -> noteLane = noteLane;
     switch (noteLane){
         case 0:
-            this -> sprite.setPosition(((720 / 2)) - (2 * 132), 0);
+            this -> sprite.setPosition(((2560 / 2)) - (2 * ((2560 / 3) / 4) ), 0);
             break;
         case 1:
-            this -> sprite.setPosition(((720 / 2)) - (1 * 132), 0);
+            this -> sprite.setPosition(((2560 / 2)) - (1 * ((2560 / 3) / 4) ), 0);
             break;
         case 2:
-            this -> sprite.setPosition(((720 / 2)), 0);
+            this -> sprite.setPosition(((2560 / 2)), 0);
             break;
         case 3:
-            this -> sprite.setPosition(((720 / 2)) + (1 * 132), 0);
+            this -> sprite.setPosition(((2560 / 2)) + (1 * ((2560 / 3) / 4) ), 0);
             break;
     }
+
+    //std::cout << noteLane << "\n";
+
     this -> index = index;
 } 
 
