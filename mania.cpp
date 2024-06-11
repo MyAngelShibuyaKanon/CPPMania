@@ -46,7 +46,7 @@ int main(){
 
     //setup graphics
     sf::RenderWindow maniaWindow(sf::VideoMode(screenWidth, screenHeight), "Gyahaha");
-    maniaWindow.setFramerateLimit(165);
+    //maniaWindow.setFramerateLimit(165);
     maniaWindow.setKeyRepeatEnabled(false);
     objects.tempTexture.loadFromFile("/home/quertzy/Documents/GitHub/CppMania/note8.png");
     objects.longNoteTailTexture.loadFromFile("/home/quertzy/Documents/GitHub/CppMania/noteT.png");
@@ -118,7 +118,7 @@ int main(){
         objects.clearNotes(playTime);
         fabulous.updateJudgement(playTime, objects.judgementScores, maniaWindow);
         
-        std::cout << playTime << "\n";
+        std::cout << 1 / dt << "\n";
         maniaWindow.display();
     }
 }

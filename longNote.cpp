@@ -11,10 +11,11 @@ void longNote::initNote(sf::Texture& noteHeadTexture,sf::Texture& noteTailTextur
 
     int x;
     float duration = (endTime - this->timeToHit);
-    //std::cout << "starttime: " << this->timeToHit<< "\n";
-    //std::cout << "endtime: " << this->endTime << "\n";
-    //std::cout << "duration: " << duration << "\n";
-    //std::cout << "offset: " << duration / 1000 * (velocity) * 60 << "\n";
+    std::cout << velocity<< "\n";
+    std::cout << "starttime: " << this->timeToHit<< "\n";
+    std::cout << "endtime: " << this->endTime << "\n";
+    std::cout << "duration: " << duration << "\n";
+    std::cout << "offset: " << (duration / 1000) * (velocity) * 165 << "\n";
     switch (noteLane){
         case 0:
             x = ((2560 / 2)) - (2 * ((2560 / 3) / 4) );

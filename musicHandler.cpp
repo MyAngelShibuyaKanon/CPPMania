@@ -3,7 +3,7 @@
 #pragma once
 musicHandler::musicHandler() {
     this -> gSoLoud.init();
-    this -> loadMusic("output.ogg");
+    this -> loadMusic("audio.mp3");
     this -> loadManiaSfx();
     this -> playMusic();
 }

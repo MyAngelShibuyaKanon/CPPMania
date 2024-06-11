@@ -30,7 +30,7 @@ void objectManager::spawnNote(graphicsHandler& graphicsManager, float velocity){
         //std::cout << "LN: " << this->bufferednote.front().toBeHit << "\n";
 
         this->mainLongNote.initNote(this->tempTexture, this->longNoteTailTexture,this->longNoteBodyTexture , this->bufferednote.front().toBeHit, this->bufferednote.front().endTime, this->bufferednote.front().lane, this -> numLongNotes, velocity);
-        //this->longNotes.push_back(this->mainLongNote);
+        this->longNotes.push_back(this->mainLongNote);
         //std::cout << this->bufferednote.front().lane << "\n";
     }
 
@@ -66,10 +66,9 @@ void objectManager::clearNotes(double playTime){
 
 void objectManager::checkJudgment(int noteLane, double playTime){
     int judgement;
-    switch (noteLane){
-        case 0:
+   
             for (int i = 0; i < this -> notes.size(); i++){
-                if (this -> notes[i].noteLane == 0 ){
+                if (this -> notes[i].noteLane == noteLane ){
                     judgement = abs(playTime * 1000 - this -> notes[i].timeToHit);
                     std::cout << judgement << "ms" << "\n";
                     if (judgement <= 16){
@@ -98,102 +97,5 @@ void objectManager::checkJudgment(int noteLane, double playTime){
                     }
                 }
             }
-            break;
-        case 1:
-            for (int i = 0; i < this -> notes.size(); i++){
-                if (this -> notes[i].noteLane == 1 ){
-                    judgement = abs(playTime * 1000 - this -> notes[i].timeToHit);
-                    std::cout << judgement << "ms" << "\n";
-                    if (judgement <= 16){
-                        this -> judgementScores.push_back(1);
-                    }
-                    else if (judgement <= 40){
-                        this -> judgementScores.push_back(2);
-                    }
-                    else if (judgement <= 73){
-                        this -> judgementScores.push_back(3);
-                    }
-                    else if (judgement <= 104){
-                        this -> judgementScores.push_back(4);
-                    }
-                    else if (judgement <= 126){
-                        this -> judgementScores.push_back(5);
-                    }
-                    else if (judgement <= 164){
-                        this -> judgementScores.push_back(6);
-                    }
-                    if (judgement > 164){
-                        continue;
-                    }else{
-                        this -> notes.erase(this -> notes.begin() + i);
-                        break;
-                    }
-                }
-            }
-            break;
-        case 2:
-            for (int i = 0; i < this -> notes.size(); i++){
-                if (this -> notes[i].noteLane == 2 ){
-                    judgement = abs(playTime * 1000 - this -> notes[i].timeToHit);
-                    std::cout << judgement << "ms" << "\n";
-                    if (judgement <= 16){
-                        this -> judgementScores.push_back(1);
-                    }
-                    else if (judgement <= 40){
-                        this -> judgementScores.push_back(2);
-                    }
-                    else if (judgement <= 73){
-                        this -> judgementScores.push_back(3);
-                    }
-                    else if (judgement <= 104){
-                        this -> judgementScores.push_back(4);
-                    }
-                    else if (judgement <= 126){
-                        this -> judgementScores.push_back(5);
-                    }
-                    else if (judgement <= 164){
-                        this -> judgementScores.push_back(6);
-                    }
-                    if (judgement > 164){
-                        continue;
-                    }else{
-                        this -> notes.erase(this -> notes.begin() + i);
-                        break;
-                    }
-                }
-            }
-            break;
-        case 3:
-            for (int i = 0; i < this -> notes.size(); i++){
-                if (this -> notes[i].noteLane == 3 ){
-                    judgement = abs(playTime * 1000 - this -> notes[i].timeToHit);
-                    std::cout << judgement << "ms" << "\n";
-                    if (judgement <= 16){
-                        this -> judgementScores.push_back(1);
-                    }
-                    else if (judgement <= 40){
-                        this -> judgementScores.push_back(2);
-                    }
-                    else if (judgement <= 73){
-                        this -> judgementScores.push_back(3);
-                    }
-                    else if (judgement <= 104){
-                        this -> judgementScores.push_back(4);
-                    }
-                    else if (judgement <= 126){
-                        this -> judgementScores.push_back(5);
-                    }
-                    else if (judgement <= 164){
-                        this -> judgementScores.push_back(6);
-                    }
-                    if (judgement > 164){
-                        continue;
-                    }else{
-                        this -> notes.erase(this -> notes.begin() + i);
-                        break;
-                    }
-                }
-            }
-            break;
-    }
+            
 }
