@@ -9,7 +9,7 @@ void parseMap(objectManager& obj){
     bool hitObjects = false;
     std::string textLine;
     std::ifstream osuFile;
-    osuFile.open("Christell - Dubidubidu (Cut Ver.) (Kibitz) [catJAM].osu");
+    osuFile.open("Casandra - Junpakustudy time (keksikosu) [Happy Girl!].osu");
     while(std::getline(osuFile >> std::ws, textLine)) {
         //printf("%s", textLine.c_str());
         if (textLine.find("HitObjects") != -1){

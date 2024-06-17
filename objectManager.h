@@ -13,6 +13,10 @@ struct noteStruct{
 
 class objectManager {
     public:
+        note topNoteJudgmentCheck;
+        longNote topLongNoteJudgmentCheck;
+        int itNote;
+        int itLongNote;
         int numNotes;
         int numLongNotes;
         sf::Texture tempTexture;
@@ -20,13 +24,15 @@ class objectManager {
         sf::Texture longNoteBodyTexture;
         note mainNote;
         longNote mainLongNote;
+        std::vector<note> noteToJudge;
+        std::vector<longNote> longNoteToJudge;
         std::vector<int> judgementScores;
         std::vector<note> notes; //notes on screen
         std::vector<longNote> longNotes;//notes on screen
         std::vector<noteStruct> bufferednote; // list of notes and their time to be hit
         bool checkTopNoteFromBuffer(double playbackTime);
         void addNote(noteStruct curNote);
-        void spawnNote(graphicsHandler& graphicsManager, float dt);
+        void spawnNote(graphicsHandler& graphicsManager, float velocity, double dt);
         void killNote(int index);
         void checkOutOfBoundNotes(int index);
         void clearNotes(double playTime);

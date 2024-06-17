@@ -50,6 +50,7 @@ int main(){
     maniaWindow.setKeyRepeatEnabled(false);
     objects.tempTexture.loadFromFile("/home/quertzy/Documents/GitHub/CppMania/note8.png");
     objects.longNoteTailTexture.loadFromFile("/home/quertzy/Documents/GitHub/CppMania/noteT.png");
+    objects.longNoteBodyTexture.loadFromFile("./noteL.png");
 
     graphicsHandler fabulous;
     fabulous.genPlayfield(4);
@@ -62,7 +63,7 @@ int main(){
 
         sf::Event event;
         dt = deltaClock.restart().asSeconds();
-        velocity = (1440 - 436 + (178 * 1.7 * 0)) / ((noteSpeedConst / 29) / 1000) * dt;
+        velocity = (1440 - 436 + (178 * 1.7 * 0)) / ((noteSpeedConst / 32) / 1000) * dt;
         
         playTime = composer.getMusicPlayTime(composer.handlerToMusic);
         
@@ -87,7 +88,6 @@ int main(){
                     composer.playManiaSfx(1);
                     objects.checkJudgment(2, playTime);
                     }
-
                 if (event.key.scancode == sf::Keyboard::Scan::L){
                     composer.playManiaSfx(0);
                     objects.checkJudgment(3, playTime);
@@ -98,7 +98,7 @@ int main(){
         //game logic
             while(!objects.bufferednote.empty()) {
             if (objects.checkTopNoteFromBuffer(playTime) == true){
-                objects.spawnNote(fabulous, velocity);
+                objects.spawnNote(fabulous, velocity, dt);
             }else{
                 break;
             }}
@@ -108,17 +108,20 @@ int main(){
         
         fabulous.renderPlayfield(maniaWindow);
 
+
+        objects.clearNotes(playTime);
+        
         for(int i = 0; i < objects.notes.size() ; i++){
             objects.notes[i].update(maniaWindow, velocity);
             }
 
         for(int i = 0; i < objects.longNotes.size() ; i++){
-           objects.longNotes[i].update(maniaWindow, velocity);
+           objects.longNotes[i].update(maniaWindow, velocity, playTime, objects.longNoteBodyTexture);
            }
-        objects.clearNotes(playTime);
+        
         fabulous.updateJudgement(playTime, objects.judgementScores, maniaWindow);
         
-        std::cout << 1 / dt << "\n";
+        std::cout << 1 / dt << " fps" << "\n";
         maniaWindow.display();
     }
 }
