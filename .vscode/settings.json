@@ -92,7 +92,9 @@
         "stack": "cpp",
         "typeindex": "cpp",
         "unordered_set": "cpp",
-        "text_encoding": "cpp"
+        "text_encoding": "cpp",
+        "mania": "cpp",
+        "print": "cpp"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }

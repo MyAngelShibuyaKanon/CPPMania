@@ -25,28 +25,25 @@ int noteSpeed;
 int keys;
 int mainMusicHandle;
 int HitPos = 436;
-int screenHeight = 1440;
-int screenWidth = 2560;
 int columnWidth = 132;
 int playWidth = columnWidth * 4;
 float dt;
 double playTime;
 double velocity;
-std::string beatmap = "a.osu";
 std::string SkinLocation = "Skins/- mayu (orbs)/";
 sf::Clock deltaClock;
 
-int main(){
+void mania::maniaStart(){
 
     //parse beatmap and objects
     objectManager objects;
-    parseMap(objects);
+    parseMap(objects, mapPath);
     objects.numNotes = 0;
     objects.numLongNotes = 0;
 
     //setup graphics
-    sf::RenderWindow maniaWindow(sf::VideoMode(screenWidth, screenHeight), "Gyahaha");
-    //maniaWindow.setFramerateLimit(165);
+    sf::RenderWindow maniaWindow(sf::VideoMode(screenWidth, screenHeight, 32), "Gyahaha", sf::Style::Fullscreen);
+    maniaWindow.setFramerateLimit(165);
     maniaWindow.setKeyRepeatEnabled(false);
     objects.tempTexture.loadFromFile("/home/quertzy/Documents/GitHub/CppMania/note8.png");
     objects.longNoteTailTexture.loadFromFile("/home/quertzy/Documents/GitHub/CppMania/noteT.png");
@@ -56,15 +53,15 @@ int main(){
     fabulous.genPlayfield(4);
     fabulous.loadJudgements();
     //audio stuff
-    musicHandler composer;
+    musicHandler composer(songPath);
     
 
     while (maniaWindow.isOpen()){
 
         sf::Event event;
         dt = deltaClock.restart().asSeconds();
-        velocity = (1440 - 436 + (178 * 1.7 * 0)) / ((noteSpeedConst / 32) / 1000) * dt;
-        
+        velocity = (1440 - 140 + 132 + 150) / ((noteSpeedConst / 30) / 1000) * dt;
+        printf ("%d \n", velocity);
         playTime = composer.getMusicPlayTime(composer.handlerToMusic);
         
         
@@ -121,7 +118,6 @@ int main(){
         
         fabulous.updateJudgement(playTime, objects.judgementScores, maniaWindow);
         
-        std::cout << 1 / dt << " fps" << "\n";
         maniaWindow.display();
     }
 }

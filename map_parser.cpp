@@ -5,11 +5,11 @@
 
 void parseHitNoteLine(std::string textLine, objectManager& obj);
 
-void parseMap(objectManager& obj){
+void parseMap(objectManager& obj, std::string mapPath){
     bool hitObjects = false;
     std::string textLine;
     std::ifstream osuFile;
-    osuFile.open("Casandra - Junpakustudy time (keksikosu) [Happy Girl!].osu");
+    osuFile.open(mapPath);
     while(std::getline(osuFile >> std::ws, textLine)) {
         //printf("%s", textLine.c_str());
         if (textLine.find("HitObjects") != -1){

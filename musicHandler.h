@@ -13,7 +13,7 @@ class musicHandler{
         SoLoud::Wav sfx;
 
     public:
-        musicHandler();
+        musicHandler(std::string songPath);
         int handlerToMusic;
         void loadManiaSfx();
         void playManiaSfx(int posInVector);

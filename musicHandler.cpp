@@ -1,9 +1,10 @@
 #include <string>
 #include <iostream>
 #pragma once
-musicHandler::musicHandler() {
+
+musicHandler::musicHandler(std::string songPath) {
     this -> gSoLoud.init();
-    this -> loadMusic("audio1.ogg");
+    this -> loadMusic(songPath);
     this -> loadManiaSfx();
     this -> playMusic();
 }
@@ -11,7 +12,6 @@ musicHandler::musicHandler() {
 void musicHandler::playManiaSfx(int posInVector){
     this -> gSoLoud.play(this->soundEffects[posInVector]);
     
-    //std::cout << this -> soundEffects[posInVector].getLength() << std::endl;
 }
 void musicHandler::playMusic(){
     this -> handlerToMusic = this -> gSoLoud.play(this -> mainMusic);

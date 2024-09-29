@@ -36,17 +36,15 @@ sf::Texture graphicsHandler::getTexture(int id){
             break;
     }
     this -> hitCircle.setTexture(this -> noteHitCircle);
-    this -> hitCircle.setPosition(x, 1440 - 436);
+    this -> hitCircle.setPosition(x, 1440 - (hitCircle.getTexture()->getSize().y * 1.7 + 132));
     this -> hitCircle.setScale(1.7, 1.7);
     this -> columnHitLine.push_back(this -> hitCircle);
-    
-    std::cout << i << "\n";
+  
   }
 }
 
 void graphicsHandler::renderPlayfield(sf::RenderTarget& window){
   for (int i = 0; i < this -> columnHitLine.size(); i++){
-    //std::cout << this -> columnHitLine[i].getPosition().x;
     window.draw(this -> columnHitLine[i]);
   }
 }
@@ -110,7 +108,6 @@ void graphicsHandler::updateJudgement(double playTime, std::vector<int>& judgeme
 
   if (playTime * 1000 - this -> timeSinceLastJudgement <= 100 && playTime * 1000 - this ->timeSinceLastJudgement  > 0){
     window.draw(this -> judgementSprite);
-    //std::cout << this -> timeSinceLastJudgement - playTime * 1000 << "\n";
   }
   
 }

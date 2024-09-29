@@ -20,26 +20,23 @@ bool objectManager::checkTopNoteFromBuffer(double playbackTime){
 void objectManager::spawnNote(graphicsHandler& graphicsManager, float velocity, double dt){
     if (this->bufferednote.front().type == 1){
 
-        //std::cout << "N" << "\n";
         this->mainNote.initNote(this->tempTexture, this->bufferednote.front().toBeHit, this->bufferednote.front().lane, this -> numNotes);
         this->notes.push_back(this->mainNote);
-        //std::cout << this->bufferednote.front().lane << "\n";
+
     }
 
     else if (this->bufferednote.front().type == 128){
-        //std::cout << "LN: " << this->bufferednote.front().toBeHit << "\n";
 
         this->mainLongNote.initNote(this->tempTexture, this->longNoteTailTexture,this->longNoteBodyTexture , this->bufferednote.front().toBeHit, this->bufferednote.front().endTime, this->bufferednote.front().lane, this -> numLongNotes, velocity, dt);
         this->longNotes.push_back(this->mainLongNote);
-        //std::cout << this->bufferednote.front().lane << "\n";
+
     }
 
     this->bufferednote.erase(this->bufferednote.begin());
 }
 
 void objectManager::killNote(int index){
-    //std::cout << "killed" << "\n";
-    //this->notes.erase(notes.begin() + index - 1);
+
     
 }
 
@@ -51,8 +48,6 @@ void objectManager::checkOutOfBoundNotes(int index){
 
 void objectManager::clearNotes(double playTime){
     for (int i = 0; i < this -> notes.size(); i++){
-        //std::cout << playTime * 1000 << " " << this -> notes[i].timeToHit << " " << (playTime * 1000) - this -> notes[i].timeToHit << "\n";
-        //std::cout << this -> notes[i].sprite.getPosition().y << "\n";
         if (playTime * 1000 - this -> notes[i].timeToHit >= 126){
             this -> notes.erase(this -> notes.begin() + i);
             i =- 1;
@@ -64,8 +59,6 @@ void objectManager::clearNotes(double playTime){
     }
 
     for (int i = 0; i < this -> longNotes.size(); i++){
-        //std::cout << playTime * 1000 << " " << this -> notes[i].timeToHit << " " << (playTime * 1000) - this -> notes[i].timeToHit << "\n";
-        //std::cout << this -> notes[i].sprite.getPosition().y << "\n";
         if (playTime * 1000 - this -> longNotes[i].endTime >= 126){
             this -> longNotes.erase(this -> longNotes.begin() + i);
             i =- 1;
@@ -108,7 +101,6 @@ void objectManager::checkJudgment(int noteLane, double playTime){
             return;
         }
         judgement = abs(playTime * 1000 - this -> notes[this->itNote].timeToHit);
-        std::cout << judgement << "ms" << "\n";
         if (judgement <= 16){
             this -> judgementScores.push_back(1);
         }
@@ -143,7 +135,6 @@ void objectManager::checkJudgment(int noteLane, double playTime){
         }
 
         judgement = abs(playTime * 1000 - this -> longNotes[this->itLongNote].timeToHit);
-        std::cout << judgement << "ms" << "\n";
         if (judgement <= 16){
             this -> judgementScores.push_back(1);
         }

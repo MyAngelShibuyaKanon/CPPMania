@@ -11,20 +11,19 @@ void note::initNote(sf::Texture& noteTexture, int noteTime, int noteLane, int in
     this -> noteLane = noteLane;
     switch (noteLane){
         case 0:
-            this -> sprite.setPosition(((2560 / 2)) - (2 * ((2560 / 3) / 4) ), 0);
+            this -> sprite.setPosition(((2560 / 2)) - (2 * ((2560 / 3) / 4) ), -150);
             break;
         case 1:
-            this -> sprite.setPosition(((2560 / 2)) - (1 * ((2560 / 3) / 4) ), 0);
+            this -> sprite.setPosition(((2560 / 2)) - (1 * ((2560 / 3) / 4) ), -150);
             break;
         case 2:
-            this -> sprite.setPosition(((2560 / 2)), 0);
+            this -> sprite.setPosition(((2560 / 2)), -150);
             break;
         case 3:
-            this -> sprite.setPosition(((2560 / 2)) + (1 * ((2560 / 3) / 4) ), 0);
+            this -> sprite.setPosition(((2560 / 2)) + (1 * ((2560 / 3) / 4) ), -150);
             break;
     }
 
-    //std::cout << noteLane << "\n";
 
     this -> index = index;
 } 

@@ -1,0 +1,2 @@
+int screenHeight;
+int screenWidth;
