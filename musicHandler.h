@@ -3,7 +3,6 @@
 #include "SoLoud/include/soloud_wav.h"
 #include <vector>
 #include <string>
-#pragma once
 
 class musicHandler{
     private:

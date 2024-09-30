@@ -1,8 +1,9 @@
-#pragma once
+#include "objectManager.h"
+
 #include "note.h"
 #include "longNote.h"
 #include "graphicsHandler.h"
-#include "graphicsHandler.cpp"
+
 #include <iostream>
 
 void objectManager::addNote(noteStruct curNote){

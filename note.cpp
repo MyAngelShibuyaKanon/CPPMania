@@ -1,9 +1,9 @@
+#include "note.h"
+
 #include <SFML/Graphics.hpp>
-#include "objectManager.h"
-#include "objectManager.cpp"
-#pragma once
 
 void note::initNote(sf::Texture& noteTexture, int noteTime, int noteLane, int index){
+    printf("hi");
     this -> sprite.setTexture(noteTexture);
     this -> sprite.setPosition(0, 0);
     this -> sprite.setScale(1.7, 1.7);

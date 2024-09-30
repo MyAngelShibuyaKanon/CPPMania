@@ -1,7 +1,6 @@
 #include <fstream>
 #include <iostream>
 #include "objectManager.h"
-#include "objectManager.cpp"
 
 void parseHitNoteLine(std::string textLine, objectManager& obj);
 

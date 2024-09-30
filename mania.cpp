@@ -1,23 +1,17 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/System/Clock.hpp>
-#include "SoLoud/include/soloud.h"
-#include "SoLoud/include/soloud_wav.h"
+
+#include "graphicsHandler.h"
+#include "objectManager.h"
+#include "musicHandler.h"
+
+#include "map_parser.cpp"
+
 #include <string>
-#include "note.h"
-#include "note.cpp"
-#include "longNote.h"
-#include "longNote.cpp"
 #include <iostream> 
 #include <vector>
-#include "musicHandler.h"
-#include "musicHandler.cpp"
-#include <thread>
-#include "map_parser.cpp"
 #include <unistd.h>
-#include "objectManager.h"
-#include "objectManager.cpp"
-#include "graphicsHandler.h"
-#include "graphicsHandler.cpp"
+
 
 const double noteSpeedConst = 11485;
 int songPosition;
@@ -30,7 +24,6 @@ int playWidth = columnWidth * 4;
 float dt;
 double playTime;
 double velocity;
-std::string SkinLocation = "Skins/- mayu (orbs)/";
 sf::Clock deltaClock;
 
 void mania::maniaStart(){
@@ -45,9 +38,9 @@ void mania::maniaStart(){
     sf::RenderWindow maniaWindow(sf::VideoMode(screenWidth, screenHeight, 32), "Gyahaha", sf::Style::Fullscreen);
     maniaWindow.setFramerateLimit(165);
     maniaWindow.setKeyRepeatEnabled(false);
-    objects.tempTexture.loadFromFile("/home/quertzy/Documents/GitHub/CppMania/note8.png");
-    objects.longNoteTailTexture.loadFromFile("/home/quertzy/Documents/GitHub/CppMania/noteT.png");
-    objects.longNoteBodyTexture.loadFromFile("./noteL.png");
+    objects.tempTexture.loadFromFile("Skins/- mayu (orbs)/Orbs/note8.png");
+    objects.longNoteTailTexture.loadFromFile("Skins/- mayu (orbs)/Orbs/noteT.png");
+    objects.longNoteBodyTexture.loadFromFile("Skins/- mayu (orbs)/Orbs/noteL.png");
 
     graphicsHandler fabulous;
     fabulous.genPlayfield(4);
@@ -61,7 +54,6 @@ void mania::maniaStart(){
         sf::Event event;
         dt = deltaClock.restart().asSeconds();
         velocity = (1440 - 140 + 132 + 150) / ((noteSpeedConst / 30) / 1000) * dt;
-        printf ("%d \n", velocity);
         playTime = composer.getMusicPlayTime(composer.handlerToMusic);
         
         

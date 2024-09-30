@@ -1,4 +1,6 @@
 #include <vector>
+#include <string>
+#include "note.h"
 #include <SFML/Graphics.hpp>
 #pragma once
 

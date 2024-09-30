@@ -1,7 +1,5 @@
 #include <SFML/Graphics.hpp>
-#include <iostream>
-#pragma once
-
+#pragma once 
 class note {
     private:
         

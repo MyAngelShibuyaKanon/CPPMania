@@ -1,14 +1,16 @@
-#include <SFML/Graphics.hpp>
 #include "graphicsHandler.h"
+
+#include "note.h"
+#include <SFML/Graphics.hpp>
 #include <iostream>
-#pragma once
+#include <string>
 
 
 sf::Texture graphicsHandler::getTexture(int id){
    sf::Texture tempTexture;
     switch (id){
         case 0:
-            tempTexture.loadFromFile("note8.png");
+            tempTexture.loadFromFile("/Skins/- mayu (orbs)/Orbs/note8.png");
             return tempTexture;
     }
 
@@ -17,7 +19,7 @@ sf::Texture graphicsHandler::getTexture(int id){
  }
 
  void graphicsHandler::genPlayfield(int colSize){
-  this -> noteHitCircle.loadFromFile("/home/quertzy/Documents/GitHub/CppMania/key.png");
+  this -> noteHitCircle.loadFromFile("Skins/- mayu (orbs)/Orbs/key.png");
   int x;
   for (int i = 1; i <= colSize; i++){
     
@@ -51,17 +53,17 @@ void graphicsHandler::renderPlayfield(sf::RenderTarget& window){
 
 void graphicsHandler::loadJudgements(){
   sf::Texture judgementTexture;
-  judgementTexture.loadFromFile("mania-hit0-0.png");
+  judgementTexture.loadFromFile("Skins/- mayu (orbs)/mania-hit0-0.png");
   this -> judgementTextures[5] = judgementTexture;
-  judgementTexture.loadFromFile("mania-hit50-0.png");
+  judgementTexture.loadFromFile("Skins/- mayu (orbs)/mania-hit50-0.png");
   this -> judgementTextures[4] = judgementTexture;
-  judgementTexture.loadFromFile("mania-hit100-0.png");
+  judgementTexture.loadFromFile("Skins/- mayu (orbs)/mania-hit100-0.png");
   this -> judgementTextures[3] = judgementTexture;
-  judgementTexture.loadFromFile("mania-hit200-0.png");
+  judgementTexture.loadFromFile("Skins/- mayu (orbs)/mania-hit200-0.png");
   this -> judgementTextures[2] = judgementTexture;
-  judgementTexture.loadFromFile("mania-hit300-0.png");
+  judgementTexture.loadFromFile("Skins/- mayu (orbs)/mania-hit300-0.png");
   this -> judgementTextures[1] = judgementTexture;
-  judgementTexture.loadFromFile("mania-hit300g-0.png");
+  judgementTexture.loadFromFile("Skins/- mayu (orbs)/mania-hit300g-0.png");
   this -> judgementTextures[0] = judgementTexture;
 
   this -> judgementSprite.setPosition(2560 / 2 - 128, 200);

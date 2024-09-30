@@ -1,3 +1,6 @@
+//#ifndef MANIA_H
+//#define MANIA_H
+
 #include <string>
 
 class mania {
@@ -12,9 +15,12 @@ class mania {
         int columnWidth = 132;
 
     public:
+        std::string workDir;
         std::string mapPath;
         std::string songPath;
         int screenHeight;
         int screenWidth;
         void maniaStart();
 };
+
+//#endif

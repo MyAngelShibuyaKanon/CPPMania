@@ -1,9 +1,11 @@
+#ifndef OBJECTMANAGER_H
+#define OBJECTMANAGER_H
+
 #include "note.h"
 #include "longNote.h"
 #include "vector"
 #include <list>
 #include "graphicsHandler.h"
-#pragma once
 struct noteStruct{
     int type; //0 is note 128 is LN
     int toBeHit;
@@ -39,3 +41,4 @@ class objectManager {
         void checkJudgment(int noteLane, double playTime);
 };
 
+#endif

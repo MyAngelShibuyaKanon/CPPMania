@@ -1,8 +1,7 @@
+#include "longNote.h"
+
 #include <SFML/Graphics.hpp>
-#include "objectManager.h"
-#include "objectManager.cpp"
 #include <iostream>
-#pragma once
 
 void longNote::initNote(sf::Texture& noteHeadTexture,sf::Texture& noteTailTexture, sf::Texture& noteBodyTexture, int noteTime, int endTime, int noteLane, int index, float velocity, double dt){
     this -> timeToHit = noteTime; 

@@ -1,6 +1,6 @@
 #include <string>
 #include <iostream>
-#pragma once
+#include "musicHandler.h"
 
 musicHandler::musicHandler(std::string songPath) {
     this -> gSoLoud.init();
