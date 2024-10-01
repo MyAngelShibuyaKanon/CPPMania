@@ -13,7 +13,7 @@ class note {
         int timeToHit; 
         int noteLane;
         sf::Sprite sprite;
-        void initNote(sf::Texture& noteTexture, int noteTime, int noteLane, int index);
+        void initNote(sf::Texture& noteTexture, int noteTime, int noteLane, int index, int screenWidth);
         void update(sf::RenderTarget& window, double velocity);
         void render(sf::RenderTarget& window);
         void move(double OffsetPosX, double OffsetPosY);

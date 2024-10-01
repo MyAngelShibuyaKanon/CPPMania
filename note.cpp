@@ -2,8 +2,7 @@
 
 #include <SFML/Graphics.hpp>
 
-void note::initNote(sf::Texture& noteTexture, int noteTime, int noteLane, int index){
-    printf("hi");
+void note::initNote(sf::Texture& noteTexture, int noteTime, int noteLane, int index, int screenWidth){
     this -> sprite.setTexture(noteTexture);
     this -> sprite.setPosition(0, 0);
     this -> sprite.setScale(1.7, 1.7);
@@ -11,16 +10,16 @@ void note::initNote(sf::Texture& noteTexture, int noteTime, int noteLane, int in
     this -> noteLane = noteLane;
     switch (noteLane){
         case 0:
-            this -> sprite.setPosition(((2560 / 2)) - (2 * ((2560 / 3) / 4) ), -150);
+            this -> sprite.setPosition(((screenWidth / 2)) - (2 * ((screenWidth / 3) / 4) ), -150);
             break;
         case 1:
-            this -> sprite.setPosition(((2560 / 2)) - (1 * ((2560 / 3) / 4) ), -150);
+            this -> sprite.setPosition(((screenWidth / 2)) - (1 * ((screenWidth / 3) / 4) ), -150);
             break;
         case 2:
-            this -> sprite.setPosition(((2560 / 2)), -150);
+            this -> sprite.setPosition(((screenWidth / 2)), -150);
             break;
         case 3:
-            this -> sprite.setPosition(((2560 / 2)) + (1 * ((2560 / 3) / 4) ), -150);
+            this -> sprite.setPosition(((screenWidth / 2)) + (1 * ((screenWidth / 3) / 4) ), -150);
             break;
     }
 

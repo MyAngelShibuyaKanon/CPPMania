@@ -1,3 +1,5 @@
+#include "mania.h"
+
 #include <SFML/Graphics.hpp>
 #include <SFML/System/Clock.hpp>
 
@@ -35,7 +37,7 @@ void mania::maniaStart(){
     objects.numLongNotes = 0;
 
     //setup graphics
-    sf::RenderWindow maniaWindow(sf::VideoMode(screenWidth, screenHeight, 32), "Gyahaha", sf::Style::Fullscreen);
+    sf::RenderWindow maniaWindow(sf::VideoMode(screenWidth, screenHeight, 32), "Gyahaha");
     maniaWindow.setFramerateLimit(165);
     maniaWindow.setKeyRepeatEnabled(false);
     objects.tempTexture.loadFromFile("Skins/- mayu (orbs)/Orbs/note8.png");
@@ -43,8 +45,8 @@ void mania::maniaStart(){
     objects.longNoteBodyTexture.loadFromFile("Skins/- mayu (orbs)/Orbs/noteL.png");
 
     graphicsHandler fabulous;
-    fabulous.genPlayfield(4);
-    fabulous.loadJudgements();
+    fabulous.genPlayfield(4, screenWidth);
+    fabulous.loadJudgements(screenWidth);
     //audio stuff
     musicHandler composer(songPath);
     
@@ -53,7 +55,7 @@ void mania::maniaStart(){
 
         sf::Event event;
         dt = deltaClock.restart().asSeconds();
-        velocity = (1440 - 140 + 132 + 150) / ((noteSpeedConst / 30) / 1000) * dt;
+        velocity = (screenHeight - 140 + (44 * (screenHeight / 480)) + 150) / ((noteSpeedConst / 30) / 1000) * dt;
         playTime = composer.getMusicPlayTime(composer.handlerToMusic);
         
         
@@ -87,7 +89,7 @@ void mania::maniaStart(){
         //game logic
             while(!objects.bufferednote.empty()) {
             if (objects.checkTopNoteFromBuffer(playTime) == true){
-                objects.spawnNote(fabulous, velocity, dt);
+                objects.spawnNote(fabulous, velocity, dt, screenWidth);
             }else{
                 break;
             }}

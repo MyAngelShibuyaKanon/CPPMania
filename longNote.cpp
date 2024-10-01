@@ -3,7 +3,7 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
-void longNote::initNote(sf::Texture& noteHeadTexture,sf::Texture& noteTailTexture, sf::Texture& noteBodyTexture, int noteTime, int endTime, int noteLane, int index, float velocity, double dt){
+void longNote::initNote(sf::Texture& noteHeadTexture,sf::Texture& noteTailTexture, sf::Texture& noteBodyTexture, int noteTime, int endTime, int noteLane, int index, float velocity, double dt, int screenWidth){
     this -> timeToHit = noteTime; 
     this -> endTime = endTime;
     this -> index = index;
@@ -13,16 +13,16 @@ void longNote::initNote(sf::Texture& noteHeadTexture,sf::Texture& noteTailTextur
     float duration = (endTime - this->timeToHit);
     switch (noteLane){
         case 0:
-            x = ((2560 / 2)) - (2 * ((2560 / 3) / 4) );
+            x = ((screenWidth / 2)) - (2 * ((screenWidth / 3) / 4) );
             break;
         case 1:
-            x = ((2560 / 2)) - (1 * ((2560 / 3) / 4) );
+            x = ((screenWidth / 2)) - (1 * ((screenWidth / 3) / 4) );
             break;
         case 2:
-            x = ((2560 / 2));
+            x = ((screenWidth / 2));
             break;
         case 3:
-            x = ((2560 / 2)) + (1 * ((2560 / 3) / 4));
+            x = ((screenWidth / 2)) + (1 * ((screenWidth / 3) / 4));
             break;
     }
     this -> x = x;

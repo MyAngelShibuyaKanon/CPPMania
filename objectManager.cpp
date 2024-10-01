@@ -18,17 +18,17 @@ bool objectManager::checkTopNoteFromBuffer(double playbackTime){
 }
 
 
-void objectManager::spawnNote(graphicsHandler& graphicsManager, float velocity, double dt){
+void objectManager::spawnNote(graphicsHandler& graphicsManager, float velocity, double dt, int screenWidth){
     if (this->bufferednote.front().type == 1){
 
-        this->mainNote.initNote(this->tempTexture, this->bufferednote.front().toBeHit, this->bufferednote.front().lane, this -> numNotes);
+        this->mainNote.initNote(this->tempTexture, this->bufferednote.front().toBeHit, this->bufferednote.front().lane, this -> numNotes, screenWidth);
         this->notes.push_back(this->mainNote);
 
     }
 
     else if (this->bufferednote.front().type == 128){
 
-        this->mainLongNote.initNote(this->tempTexture, this->longNoteTailTexture,this->longNoteBodyTexture , this->bufferednote.front().toBeHit, this->bufferednote.front().endTime, this->bufferednote.front().lane, this -> numLongNotes, velocity, dt);
+        this->mainLongNote.initNote(this->tempTexture, this->longNoteTailTexture,this->longNoteBodyTexture , this->bufferednote.front().toBeHit, this->bufferednote.front().endTime, this->bufferednote.front().lane, this -> numLongNotes, velocity, dt, screenWidth);
         this->longNotes.push_back(this->mainLongNote);
 
     }

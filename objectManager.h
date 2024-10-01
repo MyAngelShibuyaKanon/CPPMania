@@ -34,7 +34,7 @@ class objectManager {
         std::vector<noteStruct> bufferednote; // list of notes and their time to be hit
         bool checkTopNoteFromBuffer(double playbackTime);
         void addNote(noteStruct curNote);
-        void spawnNote(graphicsHandler& graphicsManager, float velocity, double dt);
+        void spawnNote(graphicsHandler& graphicsManager, float velocity, double dt, int screenWidth);
         void killNote(int index);
         void checkOutOfBoundNotes(int index);
         void clearNotes(double playTime);

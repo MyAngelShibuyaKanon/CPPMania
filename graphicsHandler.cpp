@@ -18,23 +18,23 @@ sf::Texture graphicsHandler::getTexture(int id){
    return tempTexture;
  }
 
- void graphicsHandler::genPlayfield(int colSize){
+ void graphicsHandler::genPlayfield(int colSize, int screenWidth){
   this -> noteHitCircle.loadFromFile("Skins/- mayu (orbs)/Orbs/key.png");
   int x;
   for (int i = 1; i <= colSize; i++){
     
     switch (i){
         case 1:
-            x = ((2560 / 2)) - (2 * ((2560 / 3) / 4) );
+            x = ((screenWidth / 2)) - (2 * ((screenWidth / 3) / 4) );
             break;
         case 2:
-            x = ((2560 / 2)) - (1 * ((2560 / 3) / 4) );
+            x = ((screenWidth / 2)) - (1 * ((screenWidth / 3) / 4) );
             break;
         case 3:
-            x = ((2560 / 2));
+            x = ((screenWidth / 2));
             break;
         case 4:
-            x = ((2560 / 2)) + (1 * ((2560 / 3) / 4));
+            x = ((screenWidth / 2)) + (1 * ((screenWidth / 3) / 4));
             break;
     }
     this -> hitCircle.setTexture(this -> noteHitCircle);
@@ -51,7 +51,7 @@ void graphicsHandler::renderPlayfield(sf::RenderTarget& window){
   }
 }
 
-void graphicsHandler::loadJudgements(){
+void graphicsHandler::loadJudgements(int screenWidth){
   sf::Texture judgementTexture;
   judgementTexture.loadFromFile("Skins/- mayu (orbs)/mania-hit0-0.png");
   this -> judgementTextures[5] = judgementTexture;
@@ -66,7 +66,7 @@ void graphicsHandler::loadJudgements(){
   judgementTexture.loadFromFile("Skins/- mayu (orbs)/mania-hit300g-0.png");
   this -> judgementTextures[0] = judgementTexture;
 
-  this -> judgementSprite.setPosition(2560 / 2 - 128, 200);
+  this -> judgementSprite.setPosition(screenWidth / 2 - 128, 200);
 } 
 void graphicsHandler::showJudgement(int judgementLevel){
   switch (judgementLevel)

@@ -1,5 +1,4 @@
 #include "mania.h"
-#include "mania.cpp"
 #include <string>
 #include <filesystem>
 
